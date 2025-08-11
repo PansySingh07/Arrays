@@ -1,0 +1,28 @@
+public class Arrays{
+    static int[] getMinMax (int [] arr, int index){
+        if (index == arr.length){
+            int result [] = new int [2]; 
+            result [0] = Integer.MAX_VALUE;
+            result[1] = Integer.MIN_VALUE;
+            return result;
+        }
+        int result [] = getMinMax (arr, index+1);
+        
+        
+        if(result[0] > arr[index]){
+            result[0] = arr[index];
+        }
+        
+        else if(result [1] < arr[index]){
+            result [1] = arr[index];
+        }
+        
+        return result;
+    }
+    
+    public static void main (String [] args){
+         int arr [] = {11, 5, 9, 3, 1, 5, 7};
+         int result [] = getMinMax(arr, 0);
+     System.out.println("Min:- " +result[0] + "  Max:- " +result[1] );
+         }
+    }
